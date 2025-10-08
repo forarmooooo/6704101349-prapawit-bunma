@@ -31,49 +31,26 @@ export default defineConfig((/* ctx */) => {
     ],
 
     // Full list of options: https://v2.quasar.dev/quasar-cli-vite/quasar-config-file#build
-    build: {
+build: {
   target: {
     browser: ['es2022', 'firefox115', 'chrome115', 'safari14'],
     node: 'node20',
   },
-  publicPath: '/6704101349-prapawit-bunma/', // เพิ่มตรงนี้ ใช้ชื่อ repo ของคุณ
-  vueRouterMode: 'hash', // ...existing code...
-  // ...existing code...
+  publicPath: '/6704101349-prapawit-bunma/',
+  vueRouterMode: 'hash',
+  vitePlugins: [
+    [
+      'vite-plugin-checker',
+      {
+        eslint: {
+          lintCommand: 'eslint -c ./eslint.config.js "./src*/**/*.{js,mjs,cjs,vue}"',
+          useFlatConfig: true,
+        },
+      },
+      { server: false },
+    ],
+  ],
 },
-
-      vueRouterMode: 'hash', // available values: 'hash', 'history'
-      // vueRouterBase,
-      // vueDevtools,
-      // vueOptionsAPI: false,
-
-      // rebuildCache: true, // rebuilds Vite/linter/etc cache on startup
-
-      // publicPath: '/',
-      // analyze: true,
-      // env: {},
-      // rawDefine: {}
-      // ignorePublicFolder: true,
-      // minify: false,
-      // polyfillModulePreload: true,
-      // distDir
-
-      // extendViteConf (viteConf) {},
-      // viteVuePluginOptions: {},
-
-      vitePlugins: [
-        [
-          'vite-plugin-checker',
-          {
-            eslint: {
-              lintCommand: 'eslint -c ./eslint.config.js "./src*/**/*.{js,mjs,cjs,vue}"',
-              useFlatConfig: true,
-            },
-          },
-          { server: false },
-        ],
-      ],
-    },
-
     // Full list of options: https://v2.quasar.dev/quasar-cli-vite/quasar-config-file#devserver
     devServer: {
       // https: true,
