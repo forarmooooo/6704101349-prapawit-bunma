@@ -1,7 +1,7 @@
 name: Deploy Quasar SPA to GitHub Pages
 on:
   push:
-    branches: [ "master" ]
+    branches: [ "cicd" ]
 
 jobs:
   build-and-deploy:
